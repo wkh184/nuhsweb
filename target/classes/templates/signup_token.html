@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>New Sign Up Token</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+<link href="../static/jumbotron-narrow.css" rel="stylesheet">
+<link href="../static/contact.css" rel="stylesheet">
+<script src="../static/js/jquery-3.3.1.min.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+    <main role="main" class="container">
+		<div class="header">
+			<nav class="navbar navbar-expand-sm d-flex justify-content-between">
+				<!-- logo -->
+				<a class="navbar-brand" href="index"><img
+					src="images/logo_nuhs.png" alt=""></a>
+			</nav>
+			<h3 class="text-muted my-auto">New Sign Up Token</h3>
+		</div>
+
+		<div class="jumbotron">
+			<h1 class="my-auto">Sign Up Token</h1>
+			<br> <br>
+			<form role="form" action="#" th:action="@{/signup_token_post}" th:object="${userSignupToken}" method="post">
+				<label for="inputADID">ADID</label> 
+				<input type="text" name="inputADID" id="inputADID" class="form-control" placeholder="ADID" required autofocus th:field="*{adid}"> 
+				<br> <br> 
+				<label for="inputToken">Token</label>
+				<input type="text" name="inputToken" id="inputToken" class="form-control" placeholder="Token" required autofocus th:field="*{token}"> 
+				<br> <br> 
+				<input type="submit" value="Submit" />
+			</form>
+		</div>
+		</main>
+		<footer class="footer">
+			<div class="container">
+				<p>&copy; NUHS 2018</p>
+			</div>
+		</footer>
+</body>
+</html>

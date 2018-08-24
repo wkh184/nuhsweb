@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	
+<hibernate-mapping package="com.nuhs.gcto.model">
+	<class name="UserSignup" table="userSignup" >
+		<id name="id" type="int">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="createdDT" type="timestamp">
+			<column name="created_datetime" />
+		</property>
+		<property name="updatedDT" type="timestamp">
+			<column name="updated_datetime" />
+		</property>
+		<property name="createdBy" type="string">
+			<column name="created_by" />
+		</property>
+		<property name="updatedBy" type="string">
+			<column name="updated_by" />
+		</property>
+		
+		<property name="email" type="string">
+			<column name="email" />
+		</property>
+		<property name="password" type="string">
+			<column name="details" />
+		</property>
+		<property name="name" type="string">
+			<column name="name" />
+		</property>
+		<property name="adid" type="string">
+			<column name="adid" />
+		</property>
+		<property name="token" type="string">
+			<column name="token" />
+		</property>
+	</class>
+	
+</hibernate-mapping>

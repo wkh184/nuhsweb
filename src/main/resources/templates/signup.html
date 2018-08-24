@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>New Sign Up</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+<link href="../static/jumbotron-narrow.css" rel="stylesheet">
+<link href="../static/contact.css" rel="stylesheet">
+<script src="../static/js/jquery-3.3.1.min.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+    <main role="main" class="container">
+		<div class="header">
+			<nav class="navbar navbar-expand-sm d-flex justify-content-between">
+				<!-- logo -->
+				<a class="navbar-brand" href="index"><img
+					src="images/logo_nuhs.png" alt=""></a>
+			</nav>
+			<h3 class="text-muted my-auto">New Sign Up</h3>
+		</div>
+
+		<div class="jumbotron">
+			<h1 class="my-auto">User Information</h1>
+			<form role="form" action="#" th:action="@{/signup_post}" th:object="${userSignup}" method="post">
+				<label for="inputName">Name</label> 
+				<input type="text" name="inputName" id="inputName" class="form-control" placeholder="Name" required autofocus th:field="*{name}">
+				<br> <br> 
+				<label for="inputEmail">Email</label>
+				<input type="text" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email" required autofocus th:field="*{email}"> 
+				<br> <br> 
+				<label for="inputADID">ADID</label> 
+				<input type="text" name="inputADID" id="inputADID" class="form-control" placeholder="ADID" required autofocus th:field="*{adid}"> 
+				<br> <br> 
+				<input type="submit" value="Submit" />
+			</form>
+		</div>
+		</main>
+		<footer class="footer">
+			<div class="container">
+				<p>&copy; NUHS 2018</p>
+			</div>
+		</footer>
+</body>
+</html>

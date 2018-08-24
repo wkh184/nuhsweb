@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.nuhs.gcto.model">
+	<class name="ResultPrediction" table="result_prediction" >
+		<id name="id" type="int">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="patientMRN" type="string">
+			<column name="patient_mrn" />
+		</property>
+		<property name="result" type="string">
+			<column name="result" />
+		</property>
+		<property name="resultDescription" type="string">
+			<column name="result_description" />
+		</property>
+		<property name="predictor" type="string">
+			<column name="predictor" />
+		</property>
+		<property name="dtPredicted" type="timestamp">
+			<column name="dt_predicted" />
+		</property>
+	</class>
+	
+</hibernate-mapping>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://www.hibernate.org/dtd/hibernate-configuration">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/nuhs</property>
+		<property name="hibernate.default_schema">nuhs</property>
+		<property name="hibernate.connection.username">nuhs</property>
+		<property name="hibernate.connection.password">password</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.jdbc.batch_size">50</property>
+				
+      	<mapping resource = "issue.hbm.xml"/>
+      	<mapping resource = "user.hbm.xml"/>
+      	<mapping resource = "userSignup.hbm.xml"/>
+      	<mapping resource = "result_prediction.hbm.xml"/>
+ 	</session-factory>
+</hibernate-configuration>
