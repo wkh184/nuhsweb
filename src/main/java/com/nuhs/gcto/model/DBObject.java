@@ -2,7 +2,7 @@ package com.nuhs.gcto.model;
 
 import java.sql.Timestamp;
 
-public class DBObject {
+public class DBObject implements IAuditDBRecord {
 	private int id;
 	private Timestamp createdDT;
 	private Timestamp updatedDT;

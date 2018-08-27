@@ -1,20 +1,25 @@
 package com.nuhs.gcto.model;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
-public class ResultPrediction {
+import javax.persistence.Entity;
+
+import org.hibernate.envers.Audited;
+
+@Entity
+@Audited
+public class ResultPrediction implements IAuditDBRecord {
 	private int id;
 	private String patientMRN;
 	private String result;
 	private String resultDescription;
 	private String predictor;
 	private Timestamp dtPredicted;
-		
+
 	public ResultPrediction() {
 		super();
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -51,6 +56,6 @@ public class ResultPrediction {
 	public void setDtPredicted(Timestamp dtPredicted) {
 		this.dtPredicted = dtPredicted;
 	}
-	
-	
+
+
 }

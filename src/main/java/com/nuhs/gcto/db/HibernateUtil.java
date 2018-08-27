@@ -1,10 +1,5 @@
 package com.nuhs.gcto.db;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.nuhs.gcto.controller.WebController;
-
 import java.lang.invoke.MethodHandles;
 
 import org.hibernate.SessionFactory;
@@ -12,6 +7,8 @@ import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 public class HibernateUtil {
@@ -33,10 +30,14 @@ public class HibernateUtil {
 				MetadataSources sources = new MetadataSources(registry);
 
 				// Create Metadata
-				Metadata metadata = sources.getMetadataBuilder().build();
+				Metadata metadata = sources.getMetadataBuilder()
+
+						.build();
 
 				// Create SessionFactory
-				sessionFactory = metadata.getSessionFactoryBuilder().build();
+				sessionFactory = metadata.getSessionFactoryBuilder()
+						.applyInterceptor(new DiscoveryInterceptor())
+						.build();
 
 			} catch (Exception e) {
 				e.printStackTrace();

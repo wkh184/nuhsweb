@@ -1,14 +1,13 @@
 package com.nuhs.gcto.model;
 
-import java.sql.Date;
-import java.time.Instant;
-import java.time.LocalTime;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.hibernate.envers.Audited;
+
 @Entity
+@Audited
 public class Issue extends DBObject{
 	@Id
 	@GeneratedValue
@@ -17,12 +16,12 @@ public class Issue extends DBObject{
 	private String user;
 	private String department;
 	private String category;
-	
-	
+
+
 	public Issue() {
 		super();
 	}
-	
+
 	public String getTitle() {
 		return title;
 	}
@@ -53,6 +52,6 @@ public class Issue extends DBObject{
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	
-	
+
+
 }

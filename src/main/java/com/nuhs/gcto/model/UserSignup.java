@@ -1,5 +1,11 @@
 package com.nuhs.gcto.model;
 
+import javax.persistence.Entity;
+
+import org.hibernate.envers.Audited;
+
+@Entity
+@Audited
 public class UserSignup extends User{
 	private String token;
 

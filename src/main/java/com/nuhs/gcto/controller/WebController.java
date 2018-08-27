@@ -30,11 +30,11 @@ public class WebController {
 	@RequestMapping(value="/",method = RequestMethod.GET)
 	public String home(Model model){
 		logger.debug("Home");
-//		model = PatientService.simulateLoadPatient(model);
-//		return "patient_card";
-				User user = new User();
-				model.addAttribute("user", user);		
-				return "login";
+		model = PatientService.simulateLoadPatient(model);
+		return "patient_card";
+//				User user = new User();
+//				model.addAttribute("user", user);		
+//				return "login";
 	}
 
 	@PostMapping("/login_post")
