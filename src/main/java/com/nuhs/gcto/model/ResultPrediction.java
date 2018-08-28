@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import org.hibernate.envers.Audited;
 
 @Entity
-@Audited
 public class ResultPrediction implements IAuditDBRecord {
 	private int id;
 	private String patientMRN;
@@ -15,6 +14,15 @@ public class ResultPrediction implements IAuditDBRecord {
 	private String resultDescription;
 	private String predictor;
 	private Timestamp dtPredicted;
+
+	public ResultPrediction(ResultPrediction resultPrediction) {
+		this.id = resultPrediction.id;
+		this.patientMRN = resultPrediction.patientMRN;
+		this.result = resultPrediction.result;
+		this.resultDescription = resultPrediction.resultDescription;
+		this.predictor = resultPrediction.predictor;
+		this.dtPredicted = resultPrediction.dtPredicted;
+	}
 
 	public ResultPrediction() {
 		super();

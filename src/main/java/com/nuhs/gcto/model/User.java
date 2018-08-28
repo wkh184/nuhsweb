@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import org.hibernate.envers.Audited;
 
 @Entity
-@Audited
 public class User extends DBObject{
 	private String email;
 	private String password;

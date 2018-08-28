@@ -49,6 +49,4 @@ public class DBObject implements IAuditDBRecord {
 	public void setUpdatedBy(String updatedBy) {
 		this.updatedBy = updatedBy;
 	}
-
-
 }

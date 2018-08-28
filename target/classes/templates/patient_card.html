@@ -140,9 +140,19 @@ Results
 							data-toggle="collapse" data-target="#readmission-details">Details</button>
 						<div id="readmission-details" class="collapse">
 							<p class="card-text">
-								<strong>Result Details:</strong> <span
-									th:text="*{readmission.resultDescription}" />
+								<strong>Result Details:</strong>
 							</p>
+							<table class="table table-striped table-bordered table-hover">
+								<tr>
+									<th>Parameter</th>
+									<th>Value</th>
+								</tr>
+								<tr th:each="parameter : ${readmission.getResultDescriptionPresentation()}">
+									<td th:text="${parameter.key}"></td>
+									<td th:text="${parameter.value}"></td>
+								</tr>
+							</table>
+							<p></p>
 						</div>
 					</div>
 				</div>
@@ -163,17 +173,53 @@ Results
 							data-toggle="collapse" data-target="#dpm-details">Details</button>
 						<div id="dpm-details" class="collapse">
 							<p class="card-text">
-								<strong>Result Details:</strong> <span
-									th:text="*{dpm.resultDescription}" />
+								<strong>Result Details:</strong> 
 							</p>
+							<table class="table table-striped table-bordered table-hover">
+								<tr>
+									<th>Parameter</th>
+									<th>Value</th>
+								</tr>
+								<tr th:each="parameter : ${dpm.getResultDescriptionPresentation()}">
+									<td th:text="${parameter.key}"></td>
+									<td th:text="${parameter.value}"></td>
+								</tr>
+							</table>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4">
 				<a class="glyphicon glyphicon-lock" href="construction"></a>
-				<h4>AI APP 3</h4>
-				<p>AI APP 3</p>
+				<div class="card" style="width: 400px">
+					<div class="card-body">
+						<h3 class="card-title bg-info">DVT</h3>
+						<p class="card-text">
+							<strong>Result:</strong> <span th:text="*{dvt.result}" />
+						</p>
+						<p class="card-text">
+							<strong>Prediction Date:</strong> <span
+								th:text="*{dvt.dtPredicted}" />
+						</p>
+						<button type="button" class="btn btn-primary"
+							data-toggle="collapse" data-target="#dvt-details">Details</button>
+						<div id="dvt-details" class="collapse">
+							<p class="card-text">
+								<strong>Result Details:</strong> 
+							</p>
+							<table class="table table-striped table-bordered table-hover">
+								<tr>
+									<th>Parameter</th>
+									<th>Value</th>
+								</tr>
+								<tr th:each="parameter : ${dvt.getResultDescriptionPresentation()}">
+									<td th:text="${parameter.key}"></td>
+									<td th:text="${parameter.value}"></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<br> <br>

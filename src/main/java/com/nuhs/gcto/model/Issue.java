@@ -7,7 +7,6 @@ import javax.persistence.Id;
 import org.hibernate.envers.Audited;
 
 @Entity
-@Audited
 public class Issue extends DBObject{
 	@Id
 	@GeneratedValue
