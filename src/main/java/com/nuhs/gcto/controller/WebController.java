@@ -1,6 +1,7 @@
 package com.nuhs.gcto.controller;
 
 import java.lang.invoke.MethodHandles;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,12 +15,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.nuhs.gcto.dao.IssueDAO;
+import com.nuhs.gcto.dao.ResultResponseDAO;
 import com.nuhs.gcto.model.Dashboard;
 import com.nuhs.gcto.model.Issue;
+import com.nuhs.gcto.model.ResultResponse;
 import com.nuhs.gcto.model.User;
 import com.nuhs.gcto.model.UserSignup;
 import com.nuhs.gcto.service.DashboardService;
-import com.nuhs.gcto.service.IssueService;
 import com.nuhs.gcto.service.PatientService;
 import com.nuhs.gcto.service.UserService;
 
@@ -30,6 +33,16 @@ public class WebController {
 	@RequestMapping(value="/",method = RequestMethod.GET)
 	public String home(Model model){
 		logger.debug("Home");
+//		ResultResponse response = new ResultResponse();
+//		response.setResult_id(1);
+//		response.setAdid("test");
+//		response.setPredictor("readm");
+//		response.setResultResponse("yes");
+//		Calendar calendar = Calendar.getInstance();
+//		java.util.Date now = calendar.getTime();
+//		java.sql.Timestamp currentTimestamp = new java.sql.Timestamp(now.getTime());
+//		response.setDtResponded(currentTimestamp);
+//		ResultResponseDAO.addResultResponse(response);
 		model = PatientService.simulateLoadPatient(model);
 		return "patient_card";
 //				User user = new User();
@@ -94,9 +107,9 @@ public class WebController {
 
 	@PostMapping("/add_issue_post")
 	public String issueCreate(Model model, @ModelAttribute Issue issue) {
-		Integer issueID = IssueService.addIssue(issue);
+		Integer issueID = IssueDAO.addIssue(issue);
 		logger.debug("issueID = {}", issueID.toString());
-		List issues = IssueService.getAllIssues();
+		List issues = IssueDAO.getAllIssues();
 		logger.debug("issues = {}", issues.size());
 		model.addAttribute("issues", issues);
 		return "issue_list";
@@ -104,14 +117,14 @@ public class WebController {
 
 	@RequestMapping(value="/find_issue",method = RequestMethod.GET)
 	public String findIssue(Model model){
-		List issues = IssueService.getAllIssues();
+		List issues = IssueDAO.getAllIssues();
 		model.addAllAttributes(issues);
 		return "issue_new";
 	}
 
 	@RequestMapping(value="/all_issues",method = RequestMethod.GET)
 	public String allIssues(Model model){
-		List issues = IssueService.getAllIssues();
+		List issues = IssueDAO.getAllIssues();
 		logger.debug("issues = {}", issues.size());
 		model.addAttribute("issues", issues);
 		return "issue_list";

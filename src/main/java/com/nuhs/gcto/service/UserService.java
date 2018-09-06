@@ -5,8 +5,6 @@ import java.lang.invoke.MethodHandles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
-import com.nuhs.gcto.model.UserSignup;
 import com.nuhs.gcto.model.UserSignup;
 
 public class UserService {
@@ -22,10 +20,10 @@ public class UserService {
 		logger.debug("handleNewSignUp:Token = {}", token);
 		return userSignupToken;
 	}
-	
+
 	//TODO generate token email
 	static private void generateTokenEmail(String recipient, String token) {
 		logger.debug("generateTokenEmail");
-		
+
 	}
 }

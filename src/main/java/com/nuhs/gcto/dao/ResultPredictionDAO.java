@@ -1,4 +1,4 @@
-package com.nuhs.gcto.service;
+package com.nuhs.gcto.dao;
 
 import java.lang.invoke.MethodHandles;
 import java.util.List;
@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 import com.nuhs.gcto.db.HibernateUtil;
 import com.nuhs.gcto.model.ResultPrediction;
 
-public class ResultPredictionService {
+public class ResultPredictionDAO {
 	final static Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
 	static public ResultPrediction getResult(String predictor, String mrn) {

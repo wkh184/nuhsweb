@@ -1,4 +1,4 @@
-package com.nuhs.gcto.service;
+package com.nuhs.gcto.dao;
 
 import java.lang.invoke.MethodHandles;
 import java.util.Calendar;
@@ -13,7 +13,7 @@ import org.hibernate.query.Query;
 import com.nuhs.gcto.db.HibernateUtil;
 import com.nuhs.gcto.model.Issue;
 
-public class IssueService {
+public class IssueDAO {
 	final static Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 	
 	static public Integer addIssue(Issue issue) {

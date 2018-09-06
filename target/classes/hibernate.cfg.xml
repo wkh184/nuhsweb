@@ -17,5 +17,6 @@
 		<mapping resource="user.hbm.xml" />
 		<mapping resource="userSignup.hbm.xml" />
 		<mapping resource="result_prediction.hbm.xml" />
+		<mapping resource="result_response.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>
